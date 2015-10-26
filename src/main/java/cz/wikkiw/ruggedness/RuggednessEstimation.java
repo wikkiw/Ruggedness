@@ -1,18 +1,28 @@
 package cz.wikkiw.ruggedness;
 
-import cz.wikkiw.fitnessfunctions.Ackley;
 import cz.wikkiw.fitnessfunctions.FitnessFunction;
-import cz.wikkiw.fitnessfunctions.Griewank;
-import cz.wikkiw.fitnessfunctions.Quadric;
-import cz.wikkiw.fitnessfunctions.Rosenbrock;
-import cz.wikkiw.fitnessfunctions.Salomon;
-import cz.wikkiw.fitnessfunctions.Schwefel;
+import cz.wikkiw.fitnessfunctions.f1;
+import cz.wikkiw.fitnessfunctions.f10;
+import cz.wikkiw.fitnessfunctions.f11;
+import cz.wikkiw.fitnessfunctions.f12;
+import cz.wikkiw.fitnessfunctions.f13;
+import cz.wikkiw.fitnessfunctions.f14;
+import cz.wikkiw.fitnessfunctions.f15;
+import cz.wikkiw.fitnessfunctions.f2;
+import cz.wikkiw.fitnessfunctions.f3;
+import cz.wikkiw.fitnessfunctions.f4;
+import cz.wikkiw.fitnessfunctions.f5;
+import cz.wikkiw.fitnessfunctions.f6;
+import cz.wikkiw.fitnessfunctions.f7;
+import cz.wikkiw.fitnessfunctions.f8;
+import cz.wikkiw.fitnessfunctions.f9;
 import cz.wikkiw.fitnessfunctions.objects.Boundary;
 import cz.wikkiw.fitnessfunctions.objects.Individual;
 import cz.wikkiw.prwm.PRWm;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -29,6 +39,7 @@ public class RuggednessEstimation {
     private int dimension;
     private int walkSteps;
     private double stepBoundary;
+    private Individual best;
     
     private Boundary boundary;
 
@@ -42,6 +53,7 @@ public class RuggednessEstimation {
         this.stepBoundary = stepBoundary;
         
         this.boundary = this.ffunction.getBoundary();
+        this.best = new Individual(new double[dimension], Double.MAX_VALUE);
     }
 
     /**
@@ -64,6 +76,9 @@ public class RuggednessEstimation {
         
         List<Individual> walk = prwm.getWalkIndividuals();
         Individual bestInd = prwm.getBest();
+        if(bestInd.getFitness() < this.best.getFitness()){
+            this.best = bestInd;
+        }
         
 //        for(Individual ind : walk){
 //            System.out.println(ind);
@@ -124,6 +139,8 @@ public class RuggednessEstimation {
      * @return 
      */
     private double estimateDimRuggedness(){
+        
+        this.best = new Individual(new double[dimension], Double.MAX_VALUE);
         
         double sum = 0;
         
@@ -308,34 +325,44 @@ public class RuggednessEstimation {
         this.stepBoundary = stepBoundary;
         this.boundary = this.ffunction.getBoundary();
         double[] ruggednessTable;
+        List<Individual> bestArray = new ArrayList<>();
         
         this.dimension = 2;
         ruggednessTable = this.estimateRuggedness(walkCount);
         ruggedness[0] = this.mean(ruggednessTable);
-        
-        this.dimension = 5;
-        ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[1] = this.mean(ruggednessTable);
+        bestArray.add(this.best);
         
         this.dimension = 10;
         ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[2] = this.mean(ruggednessTable);
-        
-        this.dimension = 20;
-        ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[3] = this.mean(ruggednessTable);
+        ruggedness[1] = this.mean(ruggednessTable);
+        bestArray.add(this.best);
         
         this.dimension = 30;
         ruggednessTable = this.estimateRuggedness(walkCount);
+        ruggedness[2] = this.mean(ruggednessTable);
+        bestArray.add(this.best);
+        
+        this.dimension = 50;
+        ruggednessTable = this.estimateRuggedness(walkCount);
+        ruggedness[3] = this.mean(ruggednessTable);
+        bestArray.add(this.best);
+        
+        this.dimension = 100;
+        ruggednessTable = this.estimateRuggedness(walkCount);
         ruggedness[4] = this.mean(ruggednessTable);
+        bestArray.add(this.best);
         
         PrintWriter writer;
         try {
             writer = new PrintWriter(this.ffunction.getName()+"-ruggedness.txt", "UTF-8");
 
-                System.out.println(this.ffunction.getName() + " Ruggedness: " + Arrays.toString(ruggedness));
-
-                writer.println(Arrays.toString(ruggedness));
+            writer.println(Arrays.toString(ruggedness));
+            
+            System.out.println(this.ffunction.getName() + " Ruggedness: " + Arrays.toString(ruggedness));
+            for(Individual ind : bestArray){
+                System.out.println(this.ffunction.getName() + " " + ind.getFeatures().length + "D best: " + ind);
+                writer.println(this.ffunction.getName() + " " + ind.getFeatures().length + "D best: " + ind);
+            }
         
             writer.close();
         
@@ -374,27 +401,62 @@ public class RuggednessEstimation {
         double stepBoundary = 0.1;
         int walkCount = 30;
         
-        ffunction = new Ackley();
+        ffunction = new f1();
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
-        ffunction = new Griewank();
+        ffunction = new f2();
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
-        ffunction = new Quadric();
+        ffunction = new f3();
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
-        ffunction = new Rosenbrock();
+        ffunction = new f4();
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
-        ffunction = new Salomon();
+        ffunction = new f5();
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
-        ffunction = new Schwefel();
+        ffunction = new f6();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f7();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f8();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f9();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f10();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        ffunction = new f11();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f12();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f13();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f14();
+        re = new RuggednessEstimation();
+        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+        
+        ffunction = new f15();
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
