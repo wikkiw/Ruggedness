@@ -406,60 +406,60 @@ public class RuggednessEstimation {
         re = new RuggednessEstimation();
         re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
-        ffunction = new f2();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f3();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f4();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f5();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f6();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f7();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f8();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f9();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f10();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        ffunction = new f11();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f12();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f13();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f14();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
-        
-        ffunction = new f15();
-        re = new RuggednessEstimation();
-        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        ffunction = new f2();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f3();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f4();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f5();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f6();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f7();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f8();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f9();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f10();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        ffunction = new f11();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f12();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f13();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f14();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
+//        
+//        ffunction = new f15();
+//        re = new RuggednessEstimation();
+//        re.printOutRuggedness(ffunction, walkSteps, stepBoundary, walkCount);
         
     }
     
