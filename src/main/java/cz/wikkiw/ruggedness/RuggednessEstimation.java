@@ -327,30 +327,31 @@ public class RuggednessEstimation {
         double[] ruggednessTable;
         List<Individual> bestArray = new ArrayList<>();
         
-        this.dimension = 2;
-        ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[0] = this.mean(ruggednessTable);
-        bestArray.add(this.best);
+//        this.dimension = 2;
+//        ruggednessTable = this.estimateRuggedness(walkCount);
+//        ruggedness[0] = this.mean(ruggednessTable);
+//        bestArray.add(this.best);
         
         this.dimension = 10;
+        this.ffunction.init(dimension);
         ruggednessTable = this.estimateRuggedness(walkCount);
         ruggedness[1] = this.mean(ruggednessTable);
         bestArray.add(this.best);
         
-        this.dimension = 30;
-        ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[2] = this.mean(ruggednessTable);
-        bestArray.add(this.best);
-        
-        this.dimension = 50;
-        ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[3] = this.mean(ruggednessTable);
-        bestArray.add(this.best);
-        
-        this.dimension = 100;
-        ruggednessTable = this.estimateRuggedness(walkCount);
-        ruggedness[4] = this.mean(ruggednessTable);
-        bestArray.add(this.best);
+//        this.dimension = 30;
+//        ruggednessTable = this.estimateRuggedness(walkCount);
+//        ruggedness[2] = this.mean(ruggednessTable);
+//        bestArray.add(this.best);
+//        
+//        this.dimension = 50;
+//        ruggednessTable = this.estimateRuggedness(walkCount);
+//        ruggedness[3] = this.mean(ruggednessTable);
+//        bestArray.add(this.best);
+//        
+//        this.dimension = 100;
+//        ruggednessTable = this.estimateRuggedness(walkCount);
+//        ruggedness[4] = this.mean(ruggednessTable);
+//        bestArray.add(this.best);
         
         PrintWriter writer;
         try {
