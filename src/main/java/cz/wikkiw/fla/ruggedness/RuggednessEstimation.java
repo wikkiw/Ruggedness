@@ -1,4 +1,4 @@
-package cz.wikkiw.ruggedness;
+package cz.wikkiw.fla.ruggedness;
 
 import cz.wikkiw.fitnessfunctions.FitnessFunction;
 import cz.wikkiw.fitnessfunctions.f1;
