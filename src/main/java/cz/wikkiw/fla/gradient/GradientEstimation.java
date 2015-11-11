@@ -248,7 +248,7 @@ public class GradientEstimation {
         
         FitnessFunction ffunction;
         GradientEstimation re;
-        int walkSteps = 1000;
+        int walkSteps = 10;
         int dimension = 5;
         double stepBoundary;
         int walkCount = 30;
